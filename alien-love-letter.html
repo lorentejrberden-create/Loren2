@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Monthsary, Mi Señorita 🤍✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   ALIEN SWEETHEARTS LOVE LETTER — original blue & pink alien characters
+   (not a reproduction of any copyrighted character — custom chibi design)
+   Palette:
+   --sky-100 #eaf7ff   background base
+   --sky-300 #bfe6ff   background gradient
+   --blue-500 #6fb6e8  boy alien body
+   --blue-700 #3f7fb0  boy alien shading
+   --pink-100 #fff0f7  background warm base
+   --pink-300 #ffc9e3  girl alien body / bg
+   --pink-500 #ff8fc0  girl alien shading / accents
+   --cream    #fffaf2  letter paper
+   --gold     #ffd97a  sparkle glow
+===================================================================== */
+:root{
+  --sky-100:#eaf7ff;
+  --sky-300:#bfe6ff;
+  --blue-500:#6fb6e8;
+  --blue-700:#3f7fb0;
+  --pink-100:#fff0f7;
+  --pink-300:#ffc9e3;
+  --pink-500:#ff8fc0;
+  --pink-700:#e05a99;
+  --cream:#fffaf2;
+  --gold:#ffd97a;
+  --ink:#5a5470;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; min-height:100vh; font-family:'Quicksand',sans-serif; color:var(--ink);
+  background:linear-gradient(160deg,var(--sky-100),var(--pink-100) 45%,var(--sky-300) 100%);
+  background-size:300% 300%; animation:bgShift 20s ease-in-out infinite;
+  overflow-x:hidden; position:relative;
+}
+@keyframes bgShift{0%{background-position:0% 20%;}50%{background-position:100% 80%;}100%{background-position:0% 20%;}}
+.display-font{font-family:'Baloo 2',sans-serif; font-weight:700;}
+button{font-family:inherit; cursor:pointer; border:none;}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}}
+
+/* ============ AMBIENT LAYER ============ */
+#ambient-layer{position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden;}
+
+.heart-shape{
+  position:absolute; width:14px; height:14px; opacity:0.9;
+}
+.heart-shape::before, .heart-shape::after{
+  content:""; position:absolute; width:8px; height:12px; border-radius:8px 8px 0 0; background:currentColor;
+}
+.heart-shape::before{ left:7px; transform:rotate(-45deg); }
+.heart-shape::after{ left:0; transform:rotate(45deg); }
+.h-pink{color:var(--pink-500);}
+.h-white{color:#ffffff;}
+.h-gold{color:var(--gold);}
+.h-sm{transform:scale(0.7);} .h-md{transform:scale(1.1);} .h-lg{transform:scale(1.8);}
+
+.float-up{animation:floatUp linear forwards;}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0deg); opacity:0;}
+  10%{opacity:1;} 85%{opacity:1;}
+  100%{transform:translateY(-108vh) rotate(15deg); opacity:0;}
+}
+
+.sparkle{
+  position:absolute; width:8px; height:8px; background:var(--gold);
+  clip-path:polygon(50% 0%,65% 35%,100% 50%,65% 65%,50% 100%,35% 65%,0% 50%,35% 35%);
+  animation:twinkle 1.6s ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:0.15; transform:scale(0.6) rotate(0deg);} 50%{opacity:1; transform:scale(1.15) rotate(45deg);}}
+
+.leaf{
+  position:absolute; width:16px; height:9px; background:#8fd6b8; border-radius:0 60% 0 60%;
+  animation:leafFall linear forwards; opacity:0.85;
+}
+@keyframes leafFall{
+  0%{transform:translate(0,-5vh) rotate(0deg); opacity:0;}
+  10%{opacity:0.85;}
+  100%{transform:translate(50px,110vh) rotate(260deg); opacity:0.25;}
+}
+
+.tropical-flower{
+  position:absolute; width:14px; height:14px;
+  animation:floatUp linear forwards;
+}
+.tropical-flower::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 50% 50%, #fff7c2 0 22%, transparent 23%),
+    conic-gradient(var(--pink-500) 0 25%, transparent 0 50%, var(--pink-500) 0 75%, transparent 0);
+  border-radius:2px;
+}
+
+.cloud{ position:absolute; background:#fff; opacity:0.6; border-radius:30px; animation:cloudDrift linear infinite; }
+@keyframes cloudDrift{0%{transform:translateX(-20vw);}100%{transform:translateX(120vw);}}
+
+/* ============ SCREENS ============ */
+.screen{ position:relative; z-index:5; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; text-align:center; }
+
+/* ---- intro ---- */
+#intro-blackout{ position:fixed; inset:0; background:#000; z-index:999; animation:fadeFromBlack 2.4s ease forwards; }
+@keyframes fadeFromBlack{ from{opacity:1;} to{opacity:0; visibility:hidden;} }
+
+#intro-screen .intro-text{
+  font-size:16px; line-height:1.9; color:var(--pink-700); font-family:'Baloo 2',sans-serif; font-weight:700;
+  text-shadow:0 0 12px rgba(255,255,255,0.85); opacity:0; animation:introTextIn 1.4s ease 1.6s forwards; max-width:320px;
+}
+@keyframes introTextIn{ to{opacity:1;} }
+
+/* ---- envelope ---- */
+.envelope-wrap{ margin-top:34px; position:relative; cursor:pointer; opacity:0; animation:envelopeAppear 1s ease 2.2s forwards; }
+@keyframes envelopeAppear{ to{opacity:1;} }
+.envelope{ width:150px; height:104px; position:relative; animation:envBounce 2.4s ease-in-out infinite; filter:drop-shadow(0 0 18px rgba(143,190,232,0.7)); }
+@keyframes envBounce{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(-1.5deg);}}
+.envelope .body{ position:absolute; inset:0; background:var(--pink-300); box-shadow:0 0 0 4px var(--blue-500), 0 10px 0 0 rgba(0,0,0,0.08); }
+.envelope .flap{ position:absolute; top:0; left:0; width:0; height:0; border-left:75px solid transparent; border-right:75px solid transparent; border-top:56px solid var(--blue-500); transform-origin:top center; transition:transform 0.8s ease; }
+.envelope .heart-seal{ position:absolute; top:36px; left:68px; color:var(--cream); z-index:3; }
+.envelope-wrap.opened .flap{ transform:rotateX(180deg); }
+.envelope-wrap .glow-ring{ position:absolute; inset:-18px; border-radius:50%; box-shadow:0 0 30px 10px rgba(191,230,255,0.6); animation:pulseGlow 2.4s ease-in-out infinite; }
+@keyframes pulseGlow{0%,100%{opacity:0.4;}50%{opacity:0.9;}}
+.tap-hint{ margin-top:18px; font-size:12px; letter-spacing:0.4px; color:var(--pink-700); font-weight:600; opacity:0; animation:introTextIn 1s ease 2.8s forwards; }
+
+/* ---- alien couple scene (lean + kiss) ---- */
+.alien-scene{
+  position:relative; width:220px; height:130px; margin:0 auto 8px;
+}
+.alien{
+  position:absolute; bottom:0; width:76px; height:92px;
+}
+.alien .ear{
+  position:absolute; top:-34px; width:22px; height:52px; border-radius:50% 50% 20% 20%;
+}
+.alien .ear.left{ left:2px; transform:rotate(-18deg); }
+.alien .ear.right{ right:2px; transform:rotate(18deg); }
+.alien .head{
+  position:absolute; top:4px; left:8px; width:60px; height:46px; border-radius:50% 50% 45% 45%;
+}
+.alien .eye{
+  position:absolute; width:15px; height:17px; background:#fff; border-radius:50%; top:16px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+.alien .eye .pupil{ position:absolute; width:8px; height:9px; background:#2c2c3a; border-radius:50%; top:5px; left:4px; }
+.alien .body{
+  position:absolute; bottom:0; left:6px; width:64px; height:56px; border-radius:45% 45% 40% 40%;
+}
+.alien .arm{
+  position:absolute; width:16px; height:34px; border-radius:20px; bottom:10px;
+}
+
+.alien.blue .ear, .alien.blue .arm{ background:var(--blue-700); }
+.alien.blue .head, .alien.blue .body{ background:var(--blue-500); }
+.alien.blue{ left:14px; transform:rotate(-6deg); animation:leanBlue 5s ease-in-out infinite; }
+.alien.blue .eye{ left:12px; } .alien.blue .eye.e2{ left:32px; }
+.alien.blue .arm{ right:-4px; transform:rotate(28deg); }
+
+.alien.pink .ear, .alien.pink .arm{ background:var(--pink-700); }
+.alien.pink .head, .alien.pink .body{ background:var(--pink-300); }
+.alien.pink{ right:14px; transform:rotate(6deg) scaleX(-1); animation:leanPink 5s ease-in-out infinite; }
+.alien.pink .eye{ left:12px; } .alien.pink .eye.e2{ left:32px; }
+.alien.pink .arm{ right:-4px; transform:rotate(28deg); }
+
+@keyframes leanBlue{
+  0%,30%{ transform:rotate(-6deg) translateX(0); }
+  50%{ transform:rotate(2deg) translateX(14px); }
+  70%,100%{ transform:rotate(-6deg) translateX(0); }
+}
+@keyframes leanPink{
+  0%,30%{ transform:rotate(6deg) scaleX(-1) translateX(0); }
+  50%{ transform:rotate(-2deg) scaleX(-1) translateX(14px); }
+  70%,100%{ transform:rotate(6deg) scaleX(-1) translateX(0); }
+}
+.kiss-heart{
+  position:absolute; top:2px; left:50%; transform:translateX(-50%) scale(0); color:var(--pink-500);
+  animation:kissPop 5s ease-in-out infinite;
+}
+@keyframes kissPop{
+  0%,40%{ transform:translateX(-50%) scale(0); opacity:0; }
+  50%{ transform:translateX(-50%) scale(1.3); opacity:1; }
+  62%{ transform:translateX(-50%) scale(1); opacity:1; }
+  75%,100%{ transform:translateX(-50%) translateY(-14px) scale(0.6); opacity:0; }
+}
+
+/* ---- letter screen ---- */
+#letter-screen{ padding-top:50px; padding-bottom:120px; }
+.letter-paper{
+  position:relative; max-width:480px; width:100%;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(191,230,255,0.18), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255,201,227,0.2), transparent 40%),
+    var(--cream);
+  border-radius:14px; border:3px solid var(--pink-300);
+  box-shadow:0 0 0 6px var(--cream), 0 0 0 9px var(--sky-300), 0 18px 40px rgba(111,182,232,0.28);
+  padding:36px 24px 46px; text-align:left; line-height:1.85; font-size:15.5px;
+}
+.letter-paper .corner-heart{ position:absolute; width:14px; height:14px; }
+.letter-paper .corner-heart.tl{top:10px; left:10px;} .letter-paper .corner-heart.bl{bottom:10px; left:10px;} .letter-paper .corner-heart.br{bottom:10px; right:64px;}
+.flower-row{ display:flex; justify-content:center; gap:10px; margin-bottom:6px; }
+.date-line{ text-align:center; font-size:12px; color:var(--pink-700); letter-spacing:0.5px; margin-bottom:10px; }
+.letter-title{ text-align:center; font-family:'Caveat',cursive; font-weight:700; font-size:26px; color:var(--pink-700); margin:0 0 6px; }
+.letter-body p{ margin:0 0 16px; }
+.letter-signoff{ margin-top:6px; }
+.letter-signoff .name{ font-family:'Caveat',cursive; font-size:22px; color:var(--pink-700); }
+
+/* ---- photo stamp ---- */
+.photo-stamp{ position:absolute; top:-26px; right:-14px; width:92px; transform:rotate(7deg); animation:stampSway 3.6s ease-in-out infinite; cursor:pointer; z-index:6; transition:transform 0.25s ease; }
+.photo-stamp:hover, .photo-stamp:active{ transform:rotate(7deg) scale(1.08); }
+@keyframes stampSway{0%,100%{transform:rotate(7deg) translateY(0);}50%{transform:rotate(4deg) translateY(-6px);}}
+.photo-stamp .polaroid{ background:#fff; padding:6px 6px 22px; border-radius:3px; box-shadow:0 8px 16px rgba(0,0,0,0.22); }
+.photo-stamp img{ width:100%; display:block; border-radius:1px; background:var(--sky-300); aspect-ratio:1/1; object-fit:cover; }
+.photo-stamp .caption{ font-family:'Caveat',cursive; font-size:13px; text-align:center; color:var(--pink-700); margin-top:4px; white-space:nowrap; }
+.photo-stamp .deco{ position:absolute; font-size:11px; }
+.photo-stamp .deco.d1{ top:-8px; left:-8px; } .photo-stamp .deco.d2{ bottom:14px; right:-10px; }
+
+#photo-popup{ position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; background:rgba(80,90,140,0.55); backdrop-filter:blur(3px); }
+#photo-popup.active{ display:flex; }
+.popup-card{ background:#fff; padding:14px 14px 26px; border-radius:8px; width:78vw; max-width:320px; box-shadow:0 0 40px 12px rgba(191,230,255,0.8); animation:popIn 0.35s ease; position:relative; }
+@keyframes popIn{ from{transform:scale(0.7); opacity:0;} to{transform:scale(1); opacity:1;} }
+.popup-card img{ width:100%; border-radius:4px; display:block; }
+.popup-card .caption{ font-family:'Caveat',cursive; font-size:18px; text-align:center; margin-top:10px; color:var(--pink-700); }
+.popup-close{ position:absolute; top:-14px; right:-14px; width:32px; height:32px; border-radius:50%; background:var(--pink-500); color:#fff; font-size:16px; box-shadow:0 4px 10px rgba(0,0,0,0.25); }
+
+/* ---- ending ---- */
+#ending-screen{ min-height:100vh; }
+#ending-screen .msg1{ font-size:17px; color:var(--pink-700); font-family:'Baloo 2',sans-serif; font-weight:700; opacity:0; }
+#ending-screen .msg1.show{ animation:introTextIn 1.2s ease forwards; }
+.giant-heart{ width:0; height:0; margin:26px auto; opacity:0; color:var(--pink-500); transition:all 1.4s cubic-bezier(.2,.8,.2,1); }
+.giant-heart.grown .heart-shape{ position:relative; }
+#ending-screen .msg2{ font-family:'Caveat',cursive; font-size:30px; color:var(--pink-700); opacity:0; margin-top:18px; }
+#ending-screen .msg2.show{ animation:introTextIn 1.4s ease forwards; }
+
+/* ---- controls ---- */
+.controls{ position:fixed; bottom:14px; right:14px; z-index:200; display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+.ctrl-btn{ background:#fff; color:var(--pink-700); border:2px solid var(--pink-300); border-radius:20px; padding:8px 12px; font-size:11px; display:flex; align-items:center; gap:6px; box-shadow:0 4px 10px rgba(224,90,153,0.25); transition:transform 0.2s ease; }
+.ctrl-btn:active{ transform:scale(0.94); }
+
+.scroll-hint{ position:absolute; bottom:14px; left:50%; transform:translateX(-50%); font-size:11px; color:var(--pink-700); font-weight:600; opacity:0.8; animation:bounceHint 1.6s ease-in-out infinite; }
+@keyframes bounceHint{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,6px);}}
+
+.burst-piece{ position:absolute; width:6px; height:6px; background:var(--pink-500); border-radius:50%; animation:burstOut 0.6s ease-out forwards; }
+@keyframes burstOut{ to{ transform:translate(var(--dx),var(--dy)) scale(0); opacity:0; } }
+
+body.night{ background:linear-gradient(160deg,#232449,#3a3468 45%,#5c3f6f); }
+body.night .letter-paper{ filter:brightness(0.97); }
+body.night{ color:#e9e2ff; }
+
+@media (max-width:400px){
+  .letter-paper{ padding:28px 16px 40px; font-size:14.5px; }
+  .photo-stamp{ width:78px; right:-8px; top:-20px; }
+  .alien-scene{ transform:scale(0.9); }
+}
+</style>
+</head>
+<body>
+
+<div id="ambient-layer"></div>
+<div id="intro-blackout"></div>
+
+<div id="intro-screen" class="screen">
+  <div class="intro-text">A special letter is<br>waiting for you...<br>🤍✨</div>
+
+  <div class="alien-scene" aria-hidden="true">
+    <div class="alien blue">
+      <div class="ear left"></div><div class="ear right"></div>
+      <div class="head"><div class="eye e1"><div class="pupil"></div></div><div class="eye e2"><div class="pupil"></div></div></div>
+      <div class="body"></div><div class="arm"></div>
+    </div>
+    <div class="alien pink">
+      <div class="ear left"></div><div class="ear right"></div>
+      <div class="head"><div class="eye e1"><div class="pupil"></div></div><div class="eye e2"><div class="pupil"></div></div></div>
+      <div class="body"></div><div class="arm"></div>
+    </div>
+    <div class="kiss-heart"><div class="heart-shape h-md h-pink"></div></div>
+  </div>
+
+  <div class="envelope-wrap" id="envelope-wrap">
+    <div class="glow-ring"></div>
+    <div class="envelope" id="envelope">
+      <div class="body"></div>
+      <div class="flap" id="envelope-flap"></div>
+      <div class="heart-seal"><div class="heart-shape h-sm h-white"></div></div>
+    </div>
+  </div>
+  <div class="tap-hint">tap the envelope 🤍</div>
+</div>
+
+<div id="letter-screen" class="screen" style="display:none;">
+  <div class="letter-paper letter-rising" id="letter-paper">
+
+    <div class="corner-heart tl"><div class="heart-shape h-sm h-pink"></div></div>
+    <div class="corner-heart bl"><div class="heart-shape h-sm h-pink"></div></div>
+
+    <!-- Photo — replace with your own picture later.
+         Just add a file named exactly "our-photo.jpg" in the same folder
+         as this HTML file. Nothing else needs to change. -->
+    <div class="photo-stamp" id="photo-stamp">
+      <div class="deco d1">✨</div>
+      <div class="polaroid">
+        <img id="our-photo" src="our-photo.jpg" alt="Us"
+             onerror="this.style.background='linear-gradient(135deg,#bfe6ff,#ffc9e3)'; this.removeAttribute('src'); this.alt='';">
+        <div class="caption">Us 🤍✨</div>
+      </div>
+      <div class="deco d2">🌸</div>
+    </div>
+
+    <div class="flower-row">
+      <div class="tropical-flower" style="position:relative;"></div>
+      <div class="tropical-flower" style="position:relative;"></div>
+      <div class="tropical-flower" style="position:relative;"></div>
+    </div>
+    <div class="date-line">September 26, 2026</div>
+
+    <h1 class="letter-title">Happy Monthsary, Mi Señorita</h1>
+
+    <div class="letter-body">
+      <p>To my dearest, lil beautiful, very moody wifeyy,</p>
+
+      <p>Happy monthsary, Mi Señorita!! 🤍✨</p>
+
+      <p>Another month has passed, and I'm genuinely so grateful to God that we're still here, still together, and still standing strong. I'm always grateful that He allowed me to have you in my life. You probably don't even realize how much you mean to your hubby. Even if you're veryyy moody HAHAHAHAHA, I still wouldn't trade you for anything.</p>
+
+      <p>I'll always love you, no matter what. Y'know that? You really don't know how much your hubby loves you, wifeyy. You're sooo moody sometimes, but you also know that hubby can't stay mad at you for long, my babbii. There honestly aren't enough words to explain just how much I love you.</p>
+
+      <p>I want you to remember something, especially on the quiet days. Every time you go to sleep, know that you are loved by me. And every morning when you wake up, I hope you remember that there's someone who loves you more than yesterday. You're always going to be loved by me, even on the days when you feel like you're hard to love.</p>
+
+      <p>Because for me, you've always been worth it in every version of yourself. The sweet you, the clingy you, the moody you, the tampuhin you, and even that other side of you 👀. I love you as you are, not just when everything is easy.</p>
+
+      <p>Even if nagtatampo ka right now, hubby still loves you. Even if we have misunderstandings, even if we don't always see things the same way, my love for you doesn't suddenly disappear. I hope you always remember that.</p>
+
+      <p>And above everything, I'm thankful to God for you. Ikaw at si Lord ang pahinga ni hubby. 🤍</p>
+
+      <p>I pray that God continues to guide us, protect our relationship, and teach us to be more patient, understanding, and loving toward each other. I pray that whatever challenges come our way, we'll keep choosing to understand each other instead of giving up.</p>
+
+      <p>Thank you for staying, for loving me, for being my wifeyy, and for letting me love you. I may not always say everything perfectly, but I hope my actions remind you how much you mean to me.</p>
+
+      <p>Happy monthsary, my lil beautiful, moody Señorita. 🤍✨</p>
+
+      <p>No matter how many months or years pass, and even until the day I leave this world, I'll still be here loving you, teasing you, understanding you, and probably laughing whenever you get moody HAHAHAHAHA. 🤍</p>
+
+      <p>Hubby loves you, remember that always. 🤍</p>
+
+      <p class="letter-signoff">I love you, wifeyy. Always.</p>
+    </div>
+
+    <div class="corner-heart br"><div class="heart-shape h-sm h-pink"></div></div>
+  </div>
+
+  <div class="scroll-hint">scroll for more 💗</div>
+</div>
+
+<div id="ending-screen" class="screen" style="display:none;">
+  <div class="msg1" id="ending-msg1">Thank you for reading<br>my heart. 🤍✨</div>
+  <div class="giant-heart" id="giant-heart"></div>
+  <div class="msg2" id="ending-msg2">I love you, wifeyy. Always. 🤍✨</div>
+</div>
+
+<div id="photo-popup">
+  <div class="popup-card">
+    <button class="popup-close" id="popup-close">×</button>
+    <img id="popup-img" src="our-photo.jpg" alt="Us"
+         onerror="this.style.background='linear-gradient(135deg,#bfe6ff,#ffc9e3)'; this.removeAttribute('src');">
+    <div class="caption">Us 🤍✨</div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="ctrl-btn" id="night-toggle">🌙 night</button>
+  <button class="ctrl-btn" id="replay-btn">↺ replay envelope</button>
+  <button class="ctrl-btn" id="mute-btn">🔊 music</button>
+</div>
+
+<!-- AUDIO placeholders — add real files with these exact names, same folder as this HTML file -->
+<!-- Replace bg-music.mp3 with any song you want playing in the background -->
+<audio id="bg-music" loop preload="none">
+  <source src="bg-music.mp3" type="audio/mpeg">
+</audio>
+<!-- Replace paper-open.mp3 with a soft envelope/paper sound -->
+<audio id="paper-sound" preload="none">
+  <source src="paper-open.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const ambient = document.getElementById('ambient-layer');
+function spawn(el, life){ ambient.appendChild(el); setTimeout(()=> el.remove(), life); }
+
+function spawnHeart(){
+  const el = document.createElement('div');
+  const sizes=['h-sm','h-sm','h-md']; const colors=['h-pink','h-white','h-gold'];
+  el.className = `heart-shape ${sizes[Math.floor(Math.random()*sizes.length)]} ${colors[Math.floor(Math.random()*colors.length)]} float-up`;
+  el.style.left = Math.random()*94 + 'vw'; el.style.bottom = '-5vh';
+  const dur = 7 + Math.random()*5; el.style.animationDuration = dur + 's';
+  spawn(el, dur*1000);
+}
+function spawnSparkle(){
+  const el = document.createElement('div'); el.className='sparkle';
+  el.style.left = Math.random()*100 + 'vw'; el.style.top = Math.random()*100 + 'vh';
+  el.style.animationDuration = (1.2 + Math.random()*1.4) + 's';
+  spawn(el, 3000);
+}
+function spawnLeaf(){
+  const el = document.createElement('div'); el.className='leaf';
+  el.style.left = Math.random()*100 + 'vw';
+  el.style.background = Math.random() > 0.5 ? '#8fd6b8' : '#bfe6ff';
+  const dur = 9 + Math.random()*6; el.style.animationDuration = dur + 's';
+  spawn(el, dur*1000);
+}
+function spawnFlower(){
+  const el = document.createElement('div'); el.className='tropical-flower';
+  el.style.left = Math.random()*94 + 'vw'; el.style.bottom = '-5vh';
+  const dur = 8 + Math.random()*5; el.style.animationDuration = dur + 's';
+  spawn(el, dur*1000);
+}
+function spawnCloud(){
+  const el = document.createElement('div'); el.className='cloud';
+  const w = 60 + Math.random()*50, h = w*0.4;
+  el.style.width = w+'px'; el.style.height = h+'px'; el.style.top = (4 + Math.random()*20) + 'vh';
+  const dur = 40 + Math.random()*20; el.style.animationDuration = dur + 's';
+  spawn(el, dur*1000);
+}
+
+setInterval(spawnHeart, 1300);
+setInterval(spawnSparkle, 550);
+setInterval(spawnLeaf, 1100);
+setInterval(spawnFlower, 2600);
+setInterval(spawnCloud, 7000);
+spawnCloud();
+
+document.addEventListener('click', (e)=>{
+  if(e.target.closest('.envelope-wrap, .photo-stamp, .ctrl-btn, #popup-close, #photo-popup')) return;
+  for(let i=0;i<8;i++){
+    const p = document.createElement('div'); p.className='burst-piece';
+    p.style.left = e.clientX + 'px'; p.style.top = e.clientY + 'px';
+    p.style.setProperty('--dx', (Math.random()*80-40)+'px');
+    p.style.setProperty('--dy', (Math.random()*80-40)+'px');
+    p.style.background = Math.random() > 0.5 ? '#ff8fc0' : '#ffd97a';
+    ambient.appendChild(p);
+    setTimeout(()=> p.remove(), 650);
+  }
+});
+
+const bgMusic = document.getElementById('bg-music');
+const paperSound = document.getElementById('paper-sound');
+const muteBtn = document.getElementById('mute-btn');
+let musicOn = true;
+function tryPlayMusic(){ bgMusic.volume = 0.35; bgMusic.play().catch(()=>{}); }
+muteBtn.addEventListener('click', ()=>{
+  musicOn = !musicOn;
+  if(musicOn){ tryPlayMusic(); muteBtn.textContent = '🔊 music'; }
+  else { bgMusic.pause(); muteBtn.textContent = '🔇 music'; }
+});
+
+const envelopeWrap = document.getElementById('envelope-wrap');
+const introScreen = document.getElementById('intro-screen');
+const letterScreen = document.getElementById('letter-screen');
+const letterPaper = document.getElementById('letter-paper');
+
+function openEnvelope(){
+  envelopeWrap.classList.add('opened');
+  paperSound.currentTime = 0; paperSound.play().catch(()=>{});
+  tryPlayMusic();
+  setTimeout(()=>{
+    introScreen.style.display = 'none';
+    letterScreen.style.display = 'flex';
+    letterPaper.style.animation = 'none';
+    void letterPaper.offsetWidth;
+    letterPaper.style.animation = '';
+    letterPaper.style.opacity = 0;
+    letterPaper.style.transform = 'translateY(60px) scale(0.85)';
+    requestAnimationFrame(()=>{
+      letterPaper.style.transition = 'all 1.4s cubic-bezier(.2,.8,.2,1)';
+      letterPaper.style.opacity = 1;
+      letterPaper.style.transform = 'translateY(0) scale(1)';
+    });
+  }, 850);
+}
+envelopeWrap.addEventListener('click', openEnvelope);
+
+document.getElementById('replay-btn').addEventListener('click', ()=>{
+  letterScreen.style.display = 'none';
+  document.getElementById('ending-screen').style.display = 'none';
+  introScreen.style.display = 'flex';
+  envelopeWrap.classList.remove('opened');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+document.getElementById('night-toggle').addEventListener('click', ()=>{
+  document.body.classList.toggle('night');
+});
+
+const photoStamp = document.getElementById('photo-stamp');
+const photoPopup = document.getElementById('photo-popup');
+photoStamp.addEventListener('click', ()=> photoPopup.classList.add('active'));
+document.getElementById('popup-close').addEventListener('click', ()=> photoPopup.classList.remove('active'));
+photoPopup.addEventListener('click', (e)=>{ if(e.target === photoPopup) photoPopup.classList.remove('active'); });
+
+const endingScreen = document.getElementById('ending-screen');
+let endingTriggered = false;
+function checkScrollEnd(){
+  if(endingTriggered) return;
+  if(letterScreen.style.display === 'none') return;
+  const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 40);
+  if(scrolledToBottom){ endingTriggered = true; triggerEnding(); }
+}
+window.addEventListener('scroll', checkScrollEnd);
+
+function triggerEnding(){
+  endingScreen.style.display = 'flex';
+  document.getElementById('ending-msg1').classList.add('show');
+  let count = 0;
+  const burst = setInterval(()=>{
+    for(let i=0;i<10;i++) spawnHeart();
+    for(let i=0;i<6;i++) spawnSparkle();
+    count++;
+    if(count > 18) clearInterval(burst);
+  }, 180);
+  setTimeout(()=>{
+    const gh = document.getElementById('giant-heart');
+    gh.innerHTML = '<div class="heart-shape h-lg h-pink" style="position:relative;"></div>';
+    gh.classList.add('grown');
+  }, 1200);
+  setTimeout(()=>{
+    document.getElementById('ending-msg2').classList.add('show');
+    setTimeout(()=>{ window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); }, 300);
+  }, 2600);
+}
+</script>
+</body>
+</html>
